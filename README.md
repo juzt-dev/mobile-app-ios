@@ -1,207 +1,178 @@
+Dưới đây là phiên bản README.md đã loại bỏ toàn bộ icon/emoji, tối ưu để preview đẹp và chuyên nghiệp trên GitHub:
+
 # Mobile App - iOS Template
 
-## 📁 Cấu trúc dự án
+A clean, scalable SwiftUI mobile app architecture using MVVM, ready for production with backend integration.
 
-```
+---
+
+## Project Structure
+
 Mobile App/
 ├── App/                          # App lifecycle & coordination
 │   └── AppCoordinator.swift      # Main navigation coordinator
-├── Core/                         # Core functionality
+├── Core/
 │   ├── Network/                  # API & Networking
-│   │   ├── APIClient.swift
-│   │   ├── APIEndpoint.swift
-│   │   └── NetworkError.swift
 │   ├── Storage/                  # Data persistence
-│   │   └── KeychainManager.swift
 │   └── Extensions/               # Swift extensions
-│       └── View+Extensions.swift
 ├── Features/                     # Feature modules (MVVM)
 │   ├── Auth/
-│   │   ├── Views/               # Login, Register
-│   │   ├── ViewModels/          # AuthViewModel
-│   │   └── Models/              # AuthModels
 │   ├── Home/
-│   │   ├── Views/
-│   │   ├── ViewModels/
-│   │   └── Models/
 │   └── Profile/
-│       ├── Views/
-│       ├── ViewModels/
-│       └── Models/
 ├── Shared/                       # Shared components
 │   ├── Components/
-│   │   ├── Buttons/
-│   │   └── Cards/
 │   ├── Theme/
-│   │   ├── AppColors.swift
-│   │   └── AppTypography.swift
 │   ├── Constants/
-│   │   └── AppConstants.swift
 │   └── Utils/
-│       └── Validators.swift
 └── Resources/
-    └── Assets.xcassets
-```
+└── Assets.xcassets
 
-## 🏗️ Kiến trúc
+---
 
-- **Pattern**: MVVM (Model-View-ViewModel)
-- **Architecture**: Clean Architecture + Feature-based
-- **Navigation**: Coordinator Pattern
-- **State Management**: SwiftUI @StateObject, @Published
-- **Storage**: Keychain (secure), UserDefaults (preferences)
-- **Networking**: async/await với URLSession
+## Architecture
 
-## ✨ Features đã implement
+- Pattern: MVVM (Model-View-ViewModel)
+- Structure: Clean Architecture + Feature-based
+- Navigation: Coordinator Pattern
+- State Management: `@StateObject`, `@Published`
+- Storage: Keychain + UserDefaults
+- Networking: URLSession with async/await
 
-### ✅ Core
-- APIClient với async/await
-- Keychain Manager cho token storage
-- Network error handling
+---
+
+## Features
+
+### Core
+- APIClient with async/await
+- Keychain token storage
+- Network error handler
 - Custom View extensions
 
-### ✅ Authentication
-- Login screen
-- Register screen
+### Authentication
+- Login & Register
 - Token management
-- Auth state management
+- Authentication state
 
-### ✅ Home
-- Home view với item list
+### Home
+- Item list
 - Pull to refresh
 - Error handling
 
-### ✅ Profile
-- User profile view
-- Logout functionality
+### Profile
+- User info
+- Logout
 
-### ✅ Shared Components
-- Theme system (Colors, Typography)
-- Validators (Email, Password, Phone)
-- Reusable buttons
-- Constants management
+### Shared
+- Theme system (colors, fonts)
+- Input validators
+- Reusable components
+- Constants
 
-## 🚀 Cách sử dụng
+---
 
-### 1. Chạy app
-- Mở `Mobile App.xcodeproj` trong Xcode
-- Chọn simulator hoặc device
-- Nhấn `Cmd + R` để build và run
+## Getting Started
 
-### 2. Kết nối Backend
-Mở `Core/Network/APIClient.swift` và thay đổi `baseURL`:
+### 1. Run the App
+```bash
+Open "Mobile App.xcodeproj" in Xcode
+Select a simulator or device
+Cmd + R to build and run
 
-```swift
+2. Connect to Backend
+
+Edit Core/Network/APIClient.swift:
+
 private let baseURL = "https://your-api-domain.com"
-```
 
-### 3. Thêm Feature mới
-Tạo structure trong `Features/`:
+3. Add New Feature
 
-```
+Create a folder inside Features/:
+
 Features/NewFeature/
 ├── Views/
-│   └── NewFeatureView.swift
 ├── ViewModels/
-│   └── NewFeatureViewModel.swift
 └── Models/
-    └── NewFeatureModels.swift
-```
 
-### 4. Thêm API Endpoint
-Thêm vào `Core/Network/APIEndpoint.swift`:
+4. Add New API Endpoint
 
-```swift
+In APIEndpoint.swift:
+
 case newFeature
 // ...
 case .newFeature:
     return "/api/new-feature"
-```
 
-## 📱 Screens
 
-### Login
-- Email validation
-- Password validation
-- Error handling
-- Navigation to Register
+⸻
 
-### Register
-- Name, Email, Password validation
-- Password confirmation
-- Auto login after success
+Security
+	•	Secure token storage (Keychain)
+	•	HTTPS enforced
+	•	Input validation
+	•	Sanitized error messages
 
-### Home
-- Tab navigation
-- Item list
-- Pull to refresh
-- Error states
+⸻
 
-### Profile
-- User info display
-- Logout button
+Theme Customization
 
-## 🔐 Security
+Colors
 
-- Token storage: Keychain
-- HTTPS enforced
-- Input validation
-- Error message sanitization
+In AppColors.swift:
 
-## 🎨 Theme Customization
-
-### Colors
-Edit `Shared/Theme/AppColors.swift`:
-```swift
 static let primary = Color("YourPrimaryColor")
-```
 
-### Typography
-Edit `Shared/Theme/AppTypography.swift`:
-```swift
+Typography
+
+In AppTypography.swift:
+
 static let title = Font.title.weight(.bold)
-```
 
-## 🧪 Testing
 
-- Unit tests: `Mobile AppTests/`
-- UI tests: `Mobile AppUITests/`
+⸻
 
-## 📝 Best Practices
+Testing
+	•	Unit tests in Mobile AppTests/
+	•	UI tests in Mobile AppUITests/
 
-1. **Separation of Concerns**: View, ViewModel, Model tách biệt
-2. **Reusability**: Components tái sử dụng trong `Shared/`
-3. **Type Safety**: Sử dụng enums cho constants
-4. **Async/Await**: Modern concurrency cho networking
-5. **Error Handling**: Comprehensive error handling
-6. **Security**: Keychain cho sensitive data
+⸻
 
-## 🔄 Next Steps
+Best Practices
+	•	Separation of concerns (MVVM)
+	•	Reusable shared components
+	•	Type-safe constants and APIs
+	•	Modern async/await networking
+	•	Clean error handling
+	•	Secure sensitive data
 
-### Backend (Swift Vapor)
-1. Tạo Vapor project
-2. Implement API endpoints
-3. Connect với database
-4. Deploy server
+⸻
 
-### Mobile enhancements
-1. Add caching layer
-2. Implement offline mode
-3. Add push notifications
-4. Add analytics
-5. Add unit tests
+Next Steps
 
-## 📚 Tài liệu tham khảo
+Backend Integration
+	•	Setup backend project (Node.js, Vapor, etc.)
+	•	Implement REST APIs
+	•	Connect to PostgreSQL
+	•	Deploy and secure
 
-- [SwiftUI Documentation](https://developer.apple.com/documentation/swiftui)
-- [Swift Concurrency](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html)
-- [Vapor Framework](https://docs.vapor.codes)
+Mobile Improvements
+	•	Caching layer
+	•	Offline mode
+	•	Push notifications
+	•	Analytics tracking
+	•	Test automation
 
-## 👨‍💻 Author
+⸻
 
-Created by Ho Van Chuong
+References
+	•	SwiftUI Documentation￼
+	•	Swift Concurrency Guide￼
+	•	Vapor Framework￼
+
+⸻
+
+Author: Ho Van Chuong
 Date: January 11, 2025
 
----
+⸻
 
-**Note**: Template này đã sẵn sàng để triển khai. Chỉ cần kết nối với backend API và customize theo yêu cầu dự án.
+This template is production-ready and modular. Plug in your backend API and customize as needed.
