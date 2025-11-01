@@ -31,6 +31,36 @@ Mobile App/
 ├── Shared/                       # Reusable components, theme, constants
 └── Resources/                    # Assets, localizations
 ```
+##Implemented Features
+
+Core
+	•	Async networking with centralized API client
+	•	Keychain integration for secure token storage
+	•	Centralized error handling
+	•	View and color extensions
+
+Authentication
+	•	Login and registration screens
+	•	Token-based authentication flow
+	•	Auth state management
+
+Home
+	•	Tab-based navigation
+	•	Pull-to-refresh list
+	•	Error handling and empty states
+
+Profile
+	•	Display user info
+	•	Logout functionality
+
+Shared Components
+	•	Reusable buttons, cards, and form elements
+	•	Centralized theming (colors, fonts)
+	•	Validators for email, password, etc.
+	•	Constants for API paths and keys
+
+---
+
 Getting Started
 
 1. Run the App
