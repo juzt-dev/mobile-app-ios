@@ -33,4 +33,4 @@ jobs:
       - name: Build and test
         run: |
           set -o pipefail
-          xcodebuild -project "Mobile App.xcodeproj" -scheme "Mobile App" -destination 'platform=iOS Simulator,name=iPhone 14' clean test | xcpretty
+          xcodebuild -project "Mobile App.xcodeproj" -scheme "Mobile App" -destination 'platform=iOS Simulator,name=iPhone 17' clean test | xcpretty
