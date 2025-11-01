@@ -31,7 +31,7 @@ Mobile App/
 ├── Shared/                       # Reusable components, theme, constants
 └── Resources/                    # Assets, localizations
 ```
-##Implemented Features
+## Implemented-features
 
 Core
 	•	Async networking with centralized API client
